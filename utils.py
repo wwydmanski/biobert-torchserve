@@ -14,7 +14,7 @@ class GloVe:
 
     def __init__(self, fname):
         self.embeddings = {}
-        with open(fname, "r") as f:
+        with open(fname, "r", encoding="utf-8") as f:
             for line in f:
                 self.embeddings[line.split(' ')[0]] = np.asarray(list(map(float, line.strip().split(' ')[1:])))
 
