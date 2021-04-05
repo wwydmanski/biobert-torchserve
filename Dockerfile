@@ -1,5 +1,4 @@
 FROM pytorch/torchserve
-COPY model-store/vectors.txt /home/model-server/model-store/vectors.txt
 COPY model-store/biobert_batch.mar /home/model-server/model-store/biobert_batch.mar
 
 EXPOSE 8080/tcp

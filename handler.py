@@ -9,7 +9,7 @@ class MyHandler(BaseHandler):
     def __init__(self, *args, **kwargs):
         super().__init__()
         self.tokenizer = BertTokenizer.from_pretrained("vocab.txt")
-        self.glove = GloVe("/home/model-server/model-store/vectors.txt")
+        self.glove = GloVe("vectors.txt")
 
     def get_embedding(self, sentence):
         # a_layers = bert_helper.get_layers(sentence, self.tokenizer, self.model)
@@ -24,7 +24,7 @@ class MyHandler(BaseHandler):
             json = {}
             json['tokens'] = embedding[0]
             json['sentence'] = embedding[1].tolist()
-            json['glove'] = gloves
+            json['glove'] = gloves.tolist()
             results.append(json)
         return results
 
